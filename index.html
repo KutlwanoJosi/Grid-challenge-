@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Tally Count</title>
-</head>
-<body>
-    <div>Hello World</div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,500&display=swap" rel="stylesheet">
+        <title>Tally Count</title>
+    </head>
+    <body>
+        <header class="header">
+            <h1>
+                Tally Count
+            </h1>
+        </header>
+
+        <aside class="controls">
+            <label>
+                <span>Display</span>
+                <select>
+                    <option>Single</option>
+                    <option>Multiple</option>
+                </select>
+            </label>
+
+            <label>
+                <span>Counter</span>
+                <select>
+                    <option>Counter 1</option>
+                    <option>Counter 2</option>
+                    <option>Counter 2</option>
+                </select>
+            </label>
+
+            <button>Settings</button>
+        </aside>
+        <main class="counter">
+            <input class="counter_value" readonly value="10">
+            <button class="counter_button">-</button>
+            <button class="counter_button">+</button>
+        </main>
+        <footer></footer>
+    </body>
 </html>
