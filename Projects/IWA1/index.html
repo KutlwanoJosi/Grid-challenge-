@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,500&display=swap" rel="stylesheet">
-        <script src="/Projects/IWA1/scripts.js"></script>
+        <script src="/Projects/IWA1/scripts.js" defer></script>
         <title>Tally Count</title>
     </head>
     <body>
@@ -40,10 +40,10 @@
             <button>Settings</button>
         </aside>
         <main class="counter">
-            <input class="counter__value" readonly value=" 0">
+            <input data-key="number" class="counter__value"  readonly value=" 0">
             <div class="counter__actions">
-                <button class="counter__button counter__button_first">-</button>
-                <button class="counter__button">+</button>
+                <button data-key="subtract" class="counter__button counter__button_first">-</button>
+                <button data-key="add" class="counter__button">+</button>
             </div>
         </main>
         <footer class="footer">
