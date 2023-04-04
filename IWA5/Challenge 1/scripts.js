@@ -1,9 +1,9 @@
 const FREE_WARNING = 'Free shipping only applies to single customer orders'  //defined "FREE_WARNING" by adding const
 const BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'  //defined "BANNED_WARNING" by adding const
-const NONE_SELECTED = '0'
+const NONE_SELECTED = null
 const customers = '1'
 let location = 'RSA'  //declared location as "RSA"
-let shipping = null  // declared "shipping" 
+let shipping = 400  // declared "shipping" 
 let currency = 'R'  //declared "currency" and added 'or' statements 
 
 
@@ -14,12 +14,12 @@ if (location =='RSA') {
 
         if (location == 'NAM'){  //declared loaction as 'NAM'
             currency == '$'  //added currency value
-            shipping = 600    
+             const shipping = 600    
     }
 
         else {
             currency == '$'  //added currency value
-            shipping = 800    
+            let shipping = 800    
     }
 
 }
@@ -33,7 +33,7 @@ let pens = 5 * NONE_SELECTED
 if (shoes + batteries + pens + shirts >= 1000 && currency === 'R' ) {  //added the value of 1000 and the currency
     
         if (location == 'NAM' || location == 'RSA' && customers !== 1) {
-            shipping = null  
+            shipping = 0  
 	}
 
         else {
@@ -44,12 +44,13 @@ if (shoes + batteries + pens + shirts >= 1000 && currency === 'R' ) {  //added t
 }
 
 if(location === 'NK'){  //declared location as 'NK'
+    shipping = null
     currency = null  //declared shipping as 'null'
     console.log(BANNED_WARNING)
 }
 
     
 
-console.log('price', currency, shoes + batteries + pens + shirts + shipping)
+console.log('price', currency, shoes + batteries + pens + shirts)
 
 
