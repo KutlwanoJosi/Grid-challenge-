@@ -35,4 +35,4 @@ const rentAmount = rent["large-apartment"]; //Selected
 const totalExpenses = expenses.food + expenses.transport + rentAmount;
 const total = salaryAfterTax - totalExpenses;
 
-console.log(total.toFixed(2)); 
+console.log('R',total.toFixed(2)); 
