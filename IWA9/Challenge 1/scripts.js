@@ -30,7 +30,7 @@ const rent = {
 // You can change below however you want
 
 const taxAsDecimal = parseFloat(tax[913]) / 100; //Used the parsefloat for decimal number 
-const salaryAfterTax = salary - (salary*taxAsDecimal); //Calculated the salary after tax
+const salaryAfterTax = (`${salary - (salary*taxAsDecimal)}`); //Calculated the salary after tax
 const rentAmount = rent["large-apartment"]; //Selected 
 const totalExpenses = expenses.food + expenses.transport + rentAmount;
 const total = salaryAfterTax - totalExpenses;
