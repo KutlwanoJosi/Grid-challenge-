@@ -52,7 +52,11 @@ const christmas = 6;
 const futureId = 9;
 
 // check if item has been assigned to 9 key
-console.log(holidays[futureId] ? holidays[futureId].name : `ID ${futureId} not created yet`);
+if (holidays[futureId]) {
+  console.log(holidays[futureId].name);
+} else {
+  console.log(`ID ${futureId} not created yet`);
+}
 
 // create a copy of Christmas object and modify name and date
 let copied = { ...holidays[christmas] };
