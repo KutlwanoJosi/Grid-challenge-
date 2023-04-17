@@ -1,63 +1,59 @@
-// scripts.js
-
 const STATUS_MAP = {
-    shelf: {
-        color: 'green',
-        canReserve: true,
-        canCheckout: true,
-        canCheckIn: false,
-    },
-    reserved: {
-        color: 'blue',
-        canReserve: false,
-        canCheckout: true,
-        canCheckIn: false,
-    },
-    overdue: {
-        color: 'red',
-        canReserve: false,
-        canCheckout: false,
-        canCheckIn: true,
-    },
-    checkedOut: {
-        color: 'orange',
-        canReserve: false,
-        canCheckout: false,
-        canCheckIn: true,
-    }
+shelf: {
+color: 'green',
+canReserve: true,
+canCheckout: true,
+canCheckIn: false,
+},
+reserved: {
+color: 'blue',
+canReserve: false,
+canCheckout: true,
+canCheckIn: false,
+},
+overdue: {
+color: 'red',
+canReserve: false,
+canCheckout: false,
+canCheckIn: true,
+},
+checkedOut: {
+color: 'orange',
+canReserve: false,
+canCheckout: false,
+canCheckIn: true,
+}
 }
 
-// Edit below line 
 
-status = selector(status)
-reserve = selector(reserve)
-checkout = selector(checkout)
-checkin = selector(checkin)
+// Get the relevant elements using their IDs and classes
+const book1Status = document.querySelector('#book1 .status');
+const book1ReserveButton = document.querySelector('#book1 .reserve');
+const book1CheckoutButton = document.querySelector('#book1 .checkout');
+const book1CheckinButton = document.querySelector('#book1 .checkin');
 
-status = selector(status)
-reserve = selector(reserve)
-checkout = selector(checkout)
-checkin = selector(checkin)
+const book2Status = document.querySelector('#book2 .status');
+const book2ReserveButton = document.querySelector('#book2 .reserve');
+const book2CheckoutButton = document.querySelector('#book2 .checkout');
+const book2CheckinButton = document.querySelector('#book2 .checkin');
 
-status = selector(status)
-reserve = selector(reserve)
-checkout = selector(checkout)
-checkin = selector(checkin)
+const book3Status = document.querySelector('#book3 .status');
+const book3ReserveButton = document.querySelector('#book3 .reserve');
+const book3CheckoutButton = document.querySelector('#book3 .checkout');
+const book3CheckinButton = document.querySelector('#book3 .checkin');
 
-checkin.0.color = none
-status.0.style.color = STATUS_MAP.status.color
-reserve.0 = STATUS_MAP.status.canReserver ? 'enabled' : 'disabled'
-checkout.0 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.0 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+// Update the elements based on the status map
+book1Status.style.color = STATUS_MAP.overdue.color;
+book1ReserveButton.disabled = STATUS_MAP.overdue.canReserve;
+book1CheckoutButton.disabled = STATUS_MAP.overdue.canCheckout;
+book1CheckinButton.disabled = STATUS_MAP.overdue.canCheckIn;
 
-checkin.1.color = none
-status.1.style.color = STATUS_MAP.status.color
-reserve.1 = STATUS_MAP.status.canReserver ? 'enabled' : 'disabled'
-checkout.1 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.1 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+book2Status.style.color = STATUS_MAP.reserved.color;
+book2ReserveButton.disabled = STATUS_MAP.reserved.canReserve;
+book2CheckoutButton.disabled = STATUS_MAP.reserved.canCheckout;
+book2CheckinButton.disabled = STATUS_MAP.reserved.canCheckIn;
 
-checkin.2.color = none
-status.2.style.color = STATUS_MAP.status.color
-reserve.2 = STATUS_MAP.status.canReserver ? 'enabled' : 'disabled'
-checkout.2 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.2 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+book3Status.style.color = STATUS_MAP.shelf.color;
+book3ReserveButton.disabled = STATUS_MAP.shelf.canReserve;
+book3CheckoutButton.disabled = STATUS_MAP.shelf.canCheckout;
+book3CheckinButton.disabled = STATUS_MAP.shelf.canCheckIn;
