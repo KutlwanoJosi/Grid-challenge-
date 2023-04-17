@@ -1,5 +1,3 @@
-// script.js
-
 // Get the root element for the first order
 const order1 = document.querySelector('[data-key="order1"]');
 
@@ -31,16 +29,28 @@ const status3 = order3.querySelector('.status dd');
 biscuits1.textContent = order1.dataset.biscuits;
 donuts1.textContent = order1.dataset.donuts;
 pancakes1.textContent = order1.dataset.pancakes;
-status1.textContent = order1.dataset.delivered === "true" ? "Delivered" : "Pending";
+    if (order1.dataset.delivered === "true") {
+        status1.textContent = "Delivered";
+    } else {
+        status1.textContent = "Pending";
+    }  
 
 // Set the values for the second order
 biscuits2.textContent = order2.dataset.biscuits;
 donuts2.textContent = order2.dataset.donuts;
 pancakes2.textContent = order2.dataset.pancakes;
-status2.textContent = order2.dataset.delivered === "true" ? "Delivered" : "Pending";
+    if (order2.dataset.delivered === "true") {
+        status2.textContent = "Delivered";
+    } else {
+        status2.textContent = "Pending";
+    }
 
 // Set the values for the third order
 biscuits3.textContent = order3.dataset.biscuits;
 donuts3.textContent = order3.dataset.donuts;
 pancakes3.textContent = order3.dataset.pancakes;
-status3.textContent = order3.dataset.delivered === "true" ? "Delivered" : "Pending";
+    if (order3.dataset.delivered === "true") {
+        status3.textContent = "Delivered";
+    } else {
+        status3.textContent = "Pending";
+    }
