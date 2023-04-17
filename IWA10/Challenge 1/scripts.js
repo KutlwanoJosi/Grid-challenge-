@@ -79,14 +79,41 @@ console.log(`Name change: ${copied.name}`);
 console.log(`Date change: ${copied.date}`);
 
 // output first and last holiday of the year in DD/MM/YYYY format
-const holidayDates = Object.values(holidays).map((holiday) => (holiday).date.getTime());
-const firstHoliday = new Date(Math.min(...holidayDates));
-const lastHoliday = new Date(Math.max(...holidayDates));
+const firstHolidayTimestamp = Math.min( 
+new Date(holidays[0].date).getTime(), 
+new Date(holidays[1].date).getTime(), 
+new Date(holidays[2].date).getTime(), 
+new Date(holidays[3].date).getTime(), 
+new Date(holidays[4].date).getTime(), 
+new Date(holidays[5].date).getTime(), 
+new Date(holidays[6].date).getTime(),
+new Date(holidays[7].date).getTime(), 
+new Date(holidays[8].date).getTime(),
+)
 
-console.log(`First holiday of the year: ${firstHoliday.getDate().toString().padStart(2, '0')}/${(firstHoliday.getMonth() + 1).toString().padStart(2, '0')}/${firstHoliday.getFullYear()}`);
-console.log(`Last holiday of the year: ${lastHoliday.getDate().toString().padStart(2, '0')}/${(lastHoliday.getMonth() + 1).toString().padStart(2, '0')}/${lastHoliday.getFullYear()}`);
+const lastHolidayTimestamp = Math.max( 
+  new Date(holidays[0].date).getTime(), 
+  new Date(holidays[1].date).getTime(), 
+  new Date(holidays[2].date).getTime(), 
+  new Date(holidays[3].date).getTime(), 
+  new Date(holidays[4].date).getTime(), 
+  new Date(holidays[5].date).getTime(), 
+  new Date(holidays[6].date).getTime(),
+  new Date(holidays[7].date).getTime(), 
+  new Date(holidays[8].date).getTime(),
+  )
+
+const firstHoliday = new Date(firstHolidayTimestamp) 
+const firstDay = firstHoliday.getDate().toString().padStart(2, 0) 
+const firstMonth = (firstHoliday.getMonth() + 1).toString().padStart(2, 0) 
+console.log(`${firstDay}/${firstMonth}/${currentYear}`)
+
+const lastHoliday = new Date(lastHolidayTimestamp) 
+const lastDay = lastHoliday.getDate().toString().padStart(2, 0) 
+const lastMonth = (lastHoliday.getMonth() + 1).toString().padStart(2, 0) 
+console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
 // output a random holiday date in DD/MM/YYYY format
 const randomHolidayIndex = Math.floor(Math.random() * Object.keys(holidays).length);
 const randomHoliday = Object.values(holidays)[randomHolidayIndex];
-console.log(`Random holiday`)
+console.log(randomHoliday)
