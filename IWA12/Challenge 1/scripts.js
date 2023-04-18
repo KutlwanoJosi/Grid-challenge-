@@ -42,18 +42,21 @@ const book3ReserveButton = document.querySelector('#book3 .reserve');
 const book3CheckoutButton = document.querySelector('#book3 .checkout');
 const book3CheckinButton = document.querySelector('#book3 .checkin');
 
-// Update the elements based on the status map
+// Update the elements based on the status map and set the button to gray
+book1CheckinButton.style.filter = 'grayscale(100%)';
 book1Status.style.color = STATUS_MAP.overdue.color;
-book1ReserveButton.disabled = STATUS_MAP.overdue.canReserve;
-book1CheckoutButton.disabled = STATUS_MAP.overdue.canCheckout;
-book1CheckinButton.disabled = STATUS_MAP.overdue.canCheckIn;
+book1ReserveButton.disabled = !STATUS_MAP.overdue.canReserve;
+book1CheckoutButton.disabled = !STATUS_MAP.overdue.canCheckout;
+book1CheckinButton.disabled = !STATUS_MAP.overdue.canCheckIn;
 
+book2CheckinButton.style.filter = 'grayscale(100%)';
 book2Status.style.color = STATUS_MAP.reserved.color;
-book2ReserveButton.disabled = STATUS_MAP.reserved.canReserve;
-book2CheckoutButton.disabled = STATUS_MAP.reserved.canCheckout;
-book2CheckinButton.disabled = STATUS_MAP.reserved.canCheckIn;
+book2ReserveButton.disabled = !STATUS_MAP.reserved.canReserve;
+book2CheckoutButton.disabled = !STATUS_MAP.reserved.canCheckout;
+book2CheckinButton.disabled = !STATUS_MAP.reserved.canCheckIn;
 
+book3CheckinButton.style.filter = 'grayscale(100%)';
 book3Status.style.color = STATUS_MAP.shelf.color;
-book3ReserveButton.disabled = STATUS_MAP.shelf.canReserve;
-book3CheckoutButton.disabled = STATUS_MAP.shelf.canCheckout;
-book3CheckinButton.disabled = STATUS_MAP.shelf.canCheckIn;
+book3ReserveButton.disabled = !STATUS_MAP.shelf.canReserve;
+book3CheckoutButton.disabled = !STATUS_MAP.shelf.canCheckout;
+book3CheckinButton.disabled = !STATUS_MAP.shelf.canCheckIn;
