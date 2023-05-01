@@ -67,45 +67,52 @@ const MONTHS = [
   
   // Only edit below this comment
   
-  const createHtml = (athlete) => {
-    firstName, surname, id, races = athlete
-    [date], [time] = races.reverse()
-  
-    const fragment = document.createDocumentFragment();
-  
-    title = document.createElement(h2);
-    title= id;
-    fragment.appendChild(title);
-  
-    const list = document.createElement(dl);
-  
-    const day = date.getDate();
-    const month = MONTHS[date.month];
-    const year = date.year;
-  
-    first, second, third, fourth = timeAsArray;
-    total = first + second + third + fourth;
-  
-    const hours = total / 60;
-    const minutes = total / hours / 60;
-  
-    list.innerHTML = /* html */ `
-      <dt>Athlete</dt>
-      <dd>${firstName surname}</dd>
-  
-      <dt>Total Races</dt>
-      <dd>${races}</dd>
-  
-      <dt>Event Date (Latest)</dt>
-      <dd>${day month year}</dd>
-  
-      <dt>Total Time (Latest)</dt>
-      <dd>${hours.padStart(2, 0) minutes}</dd>
-    `;
-  
-    fragment.appendChild(list);
-  }
-  
-  [NM372], [SV782] = data
-  document.querySelector(NM372).appendChild(createHtml(NM372));
-  document.querySelector(SV782).appendChild(createHtml(SV782));
+  const createHtml = (athlete) => {                   //Fixed the destructuring syntax and array access
+    const {firstName, surname, id, races }= athlete;
+    const [{date, time: timeAsArray}] = races.reverse();
+     const fragment = document.createDocumentFragment();
+
+     /*Create a new h2 element, set its text content to the id property of the athlete, and append it to the document fragment.*/
+    const title = document.createElement('h2');      //Fixed h2 and text content by adding quotes
+     title.textContent= id;
+     fragment.appendChild(title);
+     const list = document.createElement('dl');   //Fixed D1 and text content by adding quotes
+
+     //Fixed date handling and template string syntax
+     const day = new Date(date).getDate();
+     const month = MONTHS[new Date(date).getMonth()];
+     const year = new Date(date).getFullYear();
+     const [first, second, third, fourth] = timeAsArray;
+     const total = first + second + third + fourth;
+     const hours = Math.floor(total / 60);
+     const minutes = total % 60;
+
+     /*Create a new dl (description list) element, 
+     set its HTML content using template literals that incorporate the extracted properties, 
+     and append it to the document fragment.*/
+
+     /*Create a new dl (description list) element, set its HTML content using template literals that incorporate the extracted properties, 
+     and append it to the document fragment.*/
+      // Fixed template string syntax and concatenation
+     list.innerHTML =  `
+       <dt>Athlete</dt>
+       <dd>${firstName} ${surname}</dd>
+       <dt>Total Races</dt>
+       <dd>${races.length}</dd>
+       <dt>Event Date (Latest)</dt>
+       <dd>${day} ${month} ${year}</dd>
+       <dt>Total Time (Latest)</dt>
+       <dd>${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')}</dd>
+     `;
+     fragment.appendChild(list);
+      return fragment;      // fixed missing statement and return the completed document fragment from the createHtml function.
+   }
+
+   // Fixed query selector arguments and variable assignments
+   ///the athlete  IDs should be passed as strings to 'querySelector"
+   const { NM372, SV782} = data.response.data; // Extract the NM372 and SV782 properties from the data.response.data object.
+
+   /*Used querySelector to find the HTML elements that have data-athlete attributes with the values "NM372" and "SV782", respectively. 
+   And append document fragments created by the createHtml function, using the corresponding athlete objects as arguments.*/
+   document.querySelector("[data-athlete= 'NM372']").appendChild(createHtml(NM372));
+   document.querySelector("[data-athlete = 'SV782']").appendChild(createHtml(SV782));
