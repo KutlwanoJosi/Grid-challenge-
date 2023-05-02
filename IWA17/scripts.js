@@ -19,6 +19,7 @@ const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 
 
 // Only edit below 
 
+//The function takes a single argument length and returns an array containing integers from 0 to length - 1.
 const createArray = (length) => {
     const result = [];
     /*
@@ -26,6 +27,8 @@ const createArray = (length) => {
     *In each iteration, it appends a new value to the result array,
     which is the value of the loop variable 'i' So, the result array will contain the values from 0 to length - 1.
     */
+
+    // This block of code uses a for loop to iterate over the length of the array and pushes the value of the loop variable i onto the result array in each iteration.
     for (let i = 0; i < length; i++) {
         result.push(i);
     }
