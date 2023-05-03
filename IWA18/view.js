@@ -1,10 +1,6 @@
 import { TABLES, COLUMNS, state } from './data.js'
 
 /**
- * Takes any order as an object literal (as saved in state) and converts it a
- * HTML element that can be appended to the DOM. Creating order elements
- * individually prevents the JavaScript having to re-render the entire DOM every
- * time an new order is created.
  *
  * @param {object} order 
  * @returns {HTMLElement}
@@ -40,12 +36,6 @@ export const createOrderHtml = (order) => {
 }
 
 /**
- * Since the tables in use, and their identification can be configured before
- * the start of the app (in data.js), the actual options returned should be
- * dynamically added to the respective "<select>" elements in the HTML after
- * JavaScript loads. This function executes the logic thar reads the current
- * tables and creates the HTML to select them.
- *
  * @returns {HTMLElement}
  */
 const createTableOptionsHtml = () => {
@@ -61,15 +51,6 @@ const createTableOptionsHtml = () => {
     return fragment
 }
 
-/**
- * An object literal that contains references to all the HTML elements
- * referenced through the operation of the app either upon initialisation or
- * while its running (via event listeners). This ensure that all UI elements can
- * be accessed and seen in a structured manner in a single data structure.
- *
- * Note that the "column" and "area" properties created as empty and then added
- * dynamically by a loop that runs over the COLUMNS array.
- */
 export const html = {
     columns: {},
     area: {},
@@ -108,11 +89,6 @@ for (const columnName of COLUMNS) {
 }
 
 /**
- * Maps over all columns in the HTML and removes any dragging hover effects
- * except for the current column that is being dragged over (if at all). If the
- * "over" value is not specified, then all columns will be cleared of any hover
- * effects.
- *
  * @param {object} newDragging 
  */
 export const updateDraggingHtml = (newDragging) => {
@@ -125,10 +101,6 @@ export const updateDraggingHtml = (newDragging) => {
 }
 
 /**
- * Takes a specific order HTML and clones it into memory. The original HTML
- * element is then removed from the DOM, while the cloned duplicate is added to
- * the bottom of the column that is specified.
- *
  * @param {string} id - The "id" value of a specific order object. Note that
  * only the "id" value is used, not the entire object.
  *
@@ -143,10 +115,6 @@ export const moveToColumn = (id, newColumn) => {
     htmlSource.remove()
 }
 
-/**
- * Starts the app focused on the "add order" button. This means that users can
- * immediately started adding an order by pressing the enter or spacebar.
- */
 html.other.add.focus()
 
 

@@ -1,8 +1,3 @@
-/**
- * A pre-defined list of tables IDs to be used in the app. This can be
- * configured before the app is started, and allows the app to be used in
- * different environments.
- */
 export const TABLES = [
     '1',
     '2',
@@ -19,24 +14,12 @@ export const TABLES = [
     '13'
 ]
 
-/**
- * The different states that an order can be in. This can not be configured
- * before-hand just yet since the app doesn't yet create the HTML dynamically.
- * However there is room to build this functionality out at the future point.
- */
 export const COLUMNS = [
     'ordered',
     'preparing',
     'served',
 ]
 
-/**
- * The active state of the app expressed as an object literal. This should serve
- * as the single source of truth for the state that the app is in. While it
- * would be easier to save this state in the DOM, it would be much harder to
- * maintain, update and extends since the DOM itself can not be persisted or
- * saved in storage (either local or remote).
- */
 export const state = {
     orders: {},
     dragging: {
@@ -45,15 +28,6 @@ export const state = {
     }
 }
 
-/**
- * Given that an order can have the exact same title, table and column, a way is
- * required to uniquely identify an order. This function creates a unique ID by
- * combining a random number, a timestamp and another random number. While in
- * theory it is unlikely for two orders to have the exact same timestamp up to
- * the millisecond, it is still possible with edge cases like different
- * timezones. Therefore two additional random numbers are added to the ID to
- * ensure additional uniqueness.
- */
 const createUniqueId = () => {
     const random1 = Math.floor(Math.random() * 10000000000000000)
     const random2 = Math.floor(Math.random() * 10000000000000000)

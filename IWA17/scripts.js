@@ -22,19 +22,17 @@ const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 
 //The function takes a single argument length and returns an array containing integers from 0 to length - 1.
 const createArray = (length) => {
     const result = [];
-    /*
-    *The for loop in this function runs for length iterations.
-    *In each iteration, it appends a new value to the result array,
-    which is the value of the loop variable 'i' So, the result array will contain the values from 0 to length - 1.
-    */
 
-    // This block of code uses a for loop to iterate over the length of the array and pushes the value of the loop variable i onto the result array in each iteration.
+
+    /* These lines uses a for loop to iterate over the length of the array and pushes the value of the loop variable i 
+    onto the result array in each iteration.*/
     for (let i = 0; i < length; i++) {
         result.push(i);
     }
     //After the for loop completes, the result array is returned by the function.
     return result;
 };
+
 //removed the arrow function syntax '=>' and replaced it with the function expression syntax.
 //added semi-colons and parentheses after 'new Date'.
 const createData = function () {
@@ -42,18 +40,18 @@ const createData = function () {
     current.setDate(1);
     const startDay = current.getDay();
     const daysInMonth = getDaysInMonth(current);
-    const weeks = createArray(6);
+    const weeks = createArray(5);
     const days = createArray(7);
-    let result = []   //result is initialized to an empty array, which is a more appropriate initial value for an array that will be populated later.
+    let result = []  //result is an empty array, which is its initial value for an array that will be populated later.
+
     //the loop counters weekIndex and dayIndex using the let keyword, whereas Code 1 uses the in operator to iterate over the arrays.
-    //This makes Code 2 more readable, as it is clear that the loops are iterating over the length of the arrays.
-    for (let weekIndex = 0; weekIndex < weeks.length; weekIndex++) {
+        for (let weekIndex = 0; weekIndex < weeks.length; weekIndex++) {
         let value = {
-            week: weekIndex + 1,
-            days: []
+                    week: weekIndex + 1,
+                    days: []
         };
 
-        // the value of day is calculated using the formula (weekIndex * 7) + dayIndex - startDay + 1.
+    // the value of day is calculated using the formula (weekIndex * 7) + dayIndex - startDay + 1.
         for (let dayIndex = 0; dayIndex < days.length; dayIndex++) {
             const day = (weekIndex * 7) + dayIndex - startDay + 1;
             const isValid = day > 0 && day <= daysInMonth;
@@ -73,11 +71,13 @@ const createData = function () {
     }
     return weeks;
 };
+
 //changed the arrow function notation to the function declaration notation.
 //replaced the template literal syntax with a string concatenation.
 const addCell = function (existing, classString, value) {
     return `${existing}<td class="${classString}">${value}</td>`;
 };
+
 const createHtml = function (data) {              //removed the arrow function syntax '=>' and replaced it with the function expression syntax.
     let result = '';
     for (let i = 0; i < data.length; i++) {      //added the 'for (let i = 0; i < data.length; i++)' loop is used to iterate through the data array.
